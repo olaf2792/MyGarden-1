@@ -1,9 +1,17 @@
 var App = angular.module('app.controllers', ['chart.js']);
 
-App.controller('homeCtrl', function ($scope) {
+App.controller('homeCtrl', function ($scope, $http) {
+
+var load_data = function () {
+  $http.get("http://mygarden.zapto.org/connect.php").success(function(response) {
+   $scope.data = response[0];
+    console.log(response);
+
+  });
+}
+  load_data();
 
   $scope.labels = ["Bodenfeuchtikeit", "abs. Luftfeuchtigkeit", "rel. Luftfeuchtigkeit"];
-  $scope.data = [70, 80, 80];
 
 });
 
