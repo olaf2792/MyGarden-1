@@ -1,49 +1,59 @@
 var App = angular.module('app.controllers', ['chart.js']);
 
-App.controller('homeCtrl', function ($scope, $http) {
+App.controller('loaditemCtrl', function ($scope, $http) {
 
-var load_data = function () {
-  $http.get("http://mygarden.zapto.org/connect.php").success(function(response) {
-   $scope.data = response[0];
-    console.log(response);
+  var load_data = function (id) {
+    sensor.one(id).success(function(response) {
+      $scope.data = response;
 
-  });
-}
-  load_data();
+
+    });
+  }
+  //load_data(id);
 
   $scope.labels = ["Bodenfeuchtikeit", "abs. Luftfeuchtigkeit", "rel. Luftfeuchtigkeit"];
 
 });
 
+App.controller('homeCtrl', function ($scope, $http) {
 
 
-App.controller('statistikCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
 
-}])
+});
+App.controller('GridCtrl', function ($scope, almostConstant) {
+  $scope.images = [];
+  almostConstant.success(function(data){
+    $scope.almostConstant = data;
+    for(var i = 0; i < $scope.almostConstant.length; i++) {
+      $scope.images.push({id: i, src: "http://placehold.it/150x150"});
+    }
+  });
 
-App.controller('verlaufCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
 
+});
 
-}])
-
-App.controller('menuCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
-
+App.controller('statistikCtrl', ['$scope', '$stateParams', function ($scope, $stateParams) {
 
 }])
 
-App.controller('pflanzenSucheCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
+App.controller('verlaufCtrl', ['$scope', '$stateParams', function ($scope, $stateParams) {
 
 
 }])
+
+App.controller('menuCtrl', function ($scope) {
+
+
+})
+
+App.controller('pflanzenSucheCtrl', function ($scope, $http) {
+  $scope.query = {name: ""};
+  $scope.sort = {predicate: "name", reverse: false};
+
+
+  $http.get('http://mygarden.zapto.org/pflanzen.php')
+    .success(function(data){
+      $scope.pflanzen = data;
+    });
+
+});

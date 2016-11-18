@@ -1,11 +1,14 @@
 <ion-view title="Home" id="page1" style="background-color:#238A55;">
-  <ion-nav-buttons side="left" class="has-header">
-    <button class="button button-icon icon ion-android-menu"></button>
-  </ion-nav-buttons>
   <ion-content padding="true" class="has-header">
-    <canvas id="doughnut" class="chart chart-doughnut" chart-data="data" chart-labels="labels">
+    <!--  <ion-content ng-controller="GridCtrl" ng-init="load_all()">
+    <canvas id="doughnut" class="chart chart-doughnut" chart-data="data" chart-labels="labels"></canvas>
+  </ion-content>-->
 
-    </canvas>
-
-  </ion-content>
+    <ion-content ng-controller="GridCtrl" ng-init="">
+      <div class="row responsive-md">
+        <div class="col col-25" ng-repeat="image in images">
+          <img ng-src="{{image.src}}" width="100%" />
+        </div>
+      </div>
+    </ion-content>
 </ion-view>
