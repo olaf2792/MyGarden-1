@@ -23,12 +23,12 @@ App.controller('menuCtrl', function ($scope) {
 
 })
 
-App.controller('sensorCtrl', function ($scope, $routeParams, $http, $ionicHistory,almostConstant) {
-  $scope.myGoBack = function() {
+App.controller('sensorCtrl', function ($scope, $stateParams, $http, $ionicHistory,almostConstant) {
+ $scope.myGoBack = function() {
     $ionicHistory.goBack();
   };
   var load_data = function () {
-    var id = $routeParams.id;
+    var id = $stateParams.id;
     almostConstant.getSensor(id).success(function(response) {
       $scope.data = response;
 

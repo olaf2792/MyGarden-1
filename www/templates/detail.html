@@ -1,0 +1,14 @@
+<ion-nav-bar class="bar-positive">
+</ion-nav-bar>
+<ion-view title="Sensor" id="detail" style="background-color:#238A55;">
+  <ion-nav-buttons side="left">
+    <button class="button button-clear" ng-click="myGoBack()" >
+      <i class="icon ion-ios-arrow-back"></i>
+      Zurück</button>
+  </ion-nav-buttons>
+  <ion-content padding="true" class="has-header">
+    <ion-content ng-controller="sensorCtrl" ng-init="load_data()">
+      <canvas id="doughnut" class="chart chart-doughnut" chart-data="data" chart-labels="labels"></canvas>
+    </ion-content>
+
+</ion-view>

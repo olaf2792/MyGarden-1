@@ -11,11 +11,6 @@ return{
     }
   }
 
-   // var getSensor = function (id) {
-      //var url_detail = 'http://mygarden.zapto.org/connect.php/id='+id;
-     // return $http.get(url_detail);
-    //}
-
   })
 
 

@@ -1,18 +1,17 @@
-angular.module('app.routes', ['ngRoute'])
+angular.module('app.routes', [])
 
-  .config(function($stateProvider, $urlRouterProvider, $routeProvider) {
+  .config(function($stateProvider, $urlRouterProvider) {
 
     // Ionic uses AngularUI Router which uses the concept of states
     // Learn more here: https://github.com/angular-ui/ui-router
     // Set up the various states which the app can be in.
     // Each state's controller can be found in controllers.js
-    $routeProvider
-    .when("/side-menu21/details/:id", { templateUrl: "templates/sensordetail.html",controller: "sensorCtrl" })
     $stateProvider
 
 
       .state('menu', {
         url: '/side-menu21',
+        abstract: true,
         templateUrl: 'templates/menu.html',
         controller: 'menuCtrl'
       })
@@ -26,11 +25,12 @@ angular.module('app.routes', ['ngRoute'])
           }
         }
       })
+
       .state('menu.details', {
         url: '/details/:id',
         views: {
           'side-menu21': {
-            templateUrl: 'templates/sensordetail.html',
+            templateUrl: 'templates/detail.html',
             controller: 'sensorCtrl'
           }
         }
@@ -45,6 +45,7 @@ angular.module('app.routes', ['ngRoute'])
           }
         }
       })
+
       .state('menu.verlauf', {
         url: '/page3',
         views: {
@@ -54,11 +55,21 @@ angular.module('app.routes', ['ngRoute'])
           }
         }
       })
+
       .state('menu.pflanzenSuche', {
         url: '/page4',
         views: {
           'side-menu21': {
             templateUrl: 'templates/pflanzenSuche.html',
+            controller: 'pflanzenSucheCtrl'
+          }
+        }
+      })
+      .state('menu.pflanzendetail', {
+        url: '/pflanzendetail',
+        views: {
+          'side-menu21': {
+            templateUrl: 'templates/pflanzendetail.html',
             controller: 'pflanzenSucheCtrl'
           }
         }
