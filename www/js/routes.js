@@ -65,12 +65,12 @@ angular.module('app.routes', [])
           }
         }
       })
-      .state('menu.pflanzendetail', {
-        url: '/pflanzendetail',
+      .state('menu.pflanzendetails', {
+        url: '/pflanzendetail/:id',
         views: {
           'side-menu21': {
             templateUrl: 'templates/pflanzendetail.html',
-            controller: 'pflanzenSucheCtrl'
+            controller: 'pflanzenCtrl'
           }
         }
       })

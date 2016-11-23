@@ -1,6 +1,6 @@
 angular.module('app.services', [])
 
-  .factory('almostConstant', function ($http) {
+  .factory('sensor', function ($http) {
 return{
   getAll: function(){
     return $http.get('http://mygarden.zapto.org/loadall.php');
@@ -13,6 +13,18 @@ return{
 
   })
 
+  .factory('plants', function ($http) {
+    return{
+      getAll: function(){
+        return $http.get('http://mygarden.zapto.org/pflanzen.php');
+      },
+      getPlant: function(id){
+        var url_detail = 'http://mygarden.zapto.org/pflanzen.php/?id='+id;
+        return $http.get(url_detail);
+      }
+    }
+
+  })
 
 
   .service('BlankService', [function(){

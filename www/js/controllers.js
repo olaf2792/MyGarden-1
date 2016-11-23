@@ -23,13 +23,13 @@ App.controller('menuCtrl', function ($scope) {
 
 })
 
-App.controller('sensorCtrl', function ($scope, $stateParams, $http, $ionicHistory,almostConstant) {
+App.controller('sensorCtrl', function ($scope, $stateParams, $http, $ionicHistory,sensor) {
  $scope.myGoBack = function() {
     $ionicHistory.goBack();
   };
   var load_data = function () {
     var id = $stateParams.id;
-    almostConstant.getSensor(id).success(function(response) {
+    sensor.getSensor(id).success(function(response) {
       $scope.data = response;
 
     });
@@ -40,9 +40,9 @@ App.controller('sensorCtrl', function ($scope, $stateParams, $http, $ionicHistor
 
 })
 
-App.controller('GridCtrl', function ($scope, almostConstant) {
+App.controller('GridCtrl', function ($scope, sensor) {
   $scope.images = [];
-  almostConstant.getAll()
+  sensor.getAll()
     .success(function(data){
     $scope.sensoren = data;
     for(var i = 0; i < $scope.sensoren.length; i++) {
@@ -56,14 +56,30 @@ App.controller('GridCtrl', function ($scope, almostConstant) {
 
 })
 
-App.controller('pflanzenSucheCtrl', function ($scope, $http) {
+App.controller('pflanzenSucheCtrl', function ($scope, plants) {
   $scope.query = {name: ""};
   $scope.sort = {predicate: "name", reverse: false};
 
 
-  $http.get('http://mygarden.zapto.org/pflanzen.php')
+  plants.getAll()
     .success(function(data){
       $scope.pflanzen = data;
+    });
+
+})
+
+
+App.controller('pflanzenCtrl', function ($scope, $stateParams, $ionicHistory, plants) {
+  $scope.myGoBack = function() {
+    $ionicHistory.goBack();
+  };
+  $scope.query = {name: ""};
+  $scope.sort = {predicate: "name", reverse: false};
+  var id = $stateParams.id;
+
+  plants.getPlant(id)
+    .success(function(data){
+      $scope.pflanze = data[0];
     });
 
 });

@@ -7,7 +7,7 @@
       </label>
     </form>
     <ion-list  ng-repeat="pflanze in pflanzen|filter: query|orderBy:sort.predicate:sort.reverse" id="pflanzenSuche-list">
-      <ion-item ng-click="menu.pflanzendetails">{{pflanze.name}}</ion-item>
+      <ion-item ui-sref="menu.pflanzendetails({id:{{pflanze.id}}})">{{pflanze.name}}</ion-item>
     </ion-list>
   </ion-content>
 </ion-view>
