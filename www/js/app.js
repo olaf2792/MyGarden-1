@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives','app.services'])
+angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives','app.services','xeditable'])
 
   .config(function($ionicConfigProvider){
 
@@ -25,3 +25,9 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
       }
     });
   })
+
+
+  .run(function(editableOptions) {
+    editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
+  });
+

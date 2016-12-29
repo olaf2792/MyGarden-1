@@ -1,3 +1,52 @@
-<ion-view title="Verlauf" id="page3" style="background-color:#238A55;">
-  <ion-content padding="true" class="has-header"></ion-content>
+<ion-view title="Verlauf" id="page3" >
+
+  <ion-content ng-controller="verlaufCtrl" padding="false" class="has-header" overflow-scroll="false" >
+    <div class="list">
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Jahr
+        </div>
+        <select ng-model="jahr" ng-change="load_jahr(jahr)" name="year">
+          <option ng-repeat="jahr in jahreszahl" value="{{jahr.jahr}}">{{jahr.jahr}}</option>
+        </select>
+      </label>
+
+      <label class="item item-input item-select">
+        <div class="input-label">
+          KW
+        </div>
+        <select ng-model="kalenderwoche" ng-change="load_stats(kalenderwoche)">
+          <option  ng-repeat="n in range(52) track by $index" value="{{$index+1}}">{{$index+1}}</option>
+        </select>
+      </label>
+
+
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Sensor
+        </div>
+        <select ng-model="sensor_id" ng-change="change_id(sensor_id)">
+          <option>5</option>
+          <option>12</option>
+        </select>
+      </label>
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Vergleichswerte
+        </div>
+        <select>
+          <option>Boden</option>
+          <option selected>Luft</option>
+          <option>Temperatur</option>
+        </select>
+
+      </label>
+    </div>
+    <ion-content id="" ng-controller="verlaufCtrl">
+      <div class="ct-chart ct-perfect-fourth"></div>
+    </ion-content>
+    </div>
+  </ion-content>
+
+
 </ion-view>

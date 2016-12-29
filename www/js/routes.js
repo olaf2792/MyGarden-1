@@ -1,4 +1,4 @@
-angular.module('app.routes', [])
+angular.module('app.routes', ['ngRoute'])
 
   .config(function($stateProvider, $urlRouterProvider) {
 
@@ -14,6 +14,11 @@ angular.module('app.routes', [])
         abstract: true,
         templateUrl: 'templates/menu.html',
         controller: 'menuCtrl'
+      })
+      .state('login', {
+        url: '/login',
+        templateUrl: 'templates/login.html',
+        controller: 'loginCtrl'
       })
 
       .state('menu.home', {
@@ -75,7 +80,7 @@ angular.module('app.routes', [])
         }
       })
 
-    $urlRouterProvider.otherwise('/side-menu21/page1')
+    $urlRouterProvider.otherwise('/login');
 
 
 

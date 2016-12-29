@@ -2,3 +2,76 @@
   position: relative;
 }
 
+.underscope {
+  text-align: center;
+  font-size: 20px;
+  font-family: cursive;
+  text-decoration: none;
+  color: black;
+}
+#verlaufchart{
+  min-width: 560px;
+}
+.outerverlauf { overflow: scroll; }
+
+.arc text {
+  font: 10px sans-serif;
+  text-anchor: middle;
+}
+
+.arc path {
+  stroke: #fff;
+}
+.popup{
+  min-width: 300px;
+}
+.col-25{
+  max-width: 100%;
+}
+.editable-text {
+  width: 100%;
+}
+.editable-wrap .editable-controls > input{
+  text-align: center !important;
+  margin-bottom: 10px !important;
+}
+.marked{
+  background: red;
+  border-radius: 90px;
+
+}
+/* Use this selector to override the line style on a given series */
+.ct-series-a .ct-line {
+  /* Set the colour of this series line */
+  stroke: red;
+  /* Control the thikness of your lines */
+  stroke-width: 4px;
+  /* Create a dashed line with a pattern */
+  stroke-dasharray: 10px 0px;
+}
+
+/* This selector overrides the points style on line charts. Points on line charts are actually just very short strokes. This allows you to customize even the point size in CSS */
+.ct-series-a .ct-point {
+  /* Colour of your points */
+  stroke: red;
+  /* Size of your points */
+  stroke-width: 11px;
+  /* Make your points appear as squares */
+  stroke-linecap: point;
+}
+.ct-perfect-fourth {
+
+background: white;
+}
+.ct-label{
+  font-size: 14px !important;
+}
+.ct-series-a .ct-line,
+.ct-series-a .ct-point {
+  stroke: blue;
+}
+
+.ct-series-b .ct-line,
+.ct-series-b .ct-point {
+  stroke: green;
+}

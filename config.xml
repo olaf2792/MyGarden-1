@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.ionicframework.example377895" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>example</name>
+<widget id="com.ionicframework.MyGarden" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>MyGarden</name>
   <description>
       Application MyGarden to controll SmartHome Sensors for Plants
     </description>
-  <author email="olaf_miko@hotmail.de" href="http://example.com.com/">
+  <author email="olaf_miko@hotmail.de" href="http://mygarden.zapto.org/">
       Olaf Mikolajczyk
     </author>
   <content src="index.html"/>

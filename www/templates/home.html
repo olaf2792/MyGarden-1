@@ -1,16 +1,16 @@
-<ion-nav-bar class="bar-positive">
-</ion-nav-bar>
-<ion-view title="Home" id="page1" style="background-color:#238A55;">
+
+<ion-view title="Home" id="page1" style="background-color:#9d8939;">
   <ion-content padding="true" class="has-header">
     <!--  <ion-content ng-controller="GridCtrl" ng-init="load_all()">
     <canvas id="doughnut" class="chart chart-doughnut" chart-data="data" chart-labels="labels"></canvas>
   </ion-content>-->
 
-    <ion-content ng-controller="GridCtrl" ng-init="">
+    <ion-content ng-controller="homeCtrl" ng-init="" overflow-scroll="false" >
       <div class="row responsive-md">
         <div class="col col-25" ng-repeat="image in images">
           <a ui-sref="menu.details({id:{{image.id}}})">
-          <img ng-src="{{image.src}}" width="100%" />
+          <img id="{{image.id}}" on-hold="onHold()" ng-src="{{image.src}}" width="100%" />
+            <div class="underscope">{{image.name}}</div>
           </a>
         </div>
       </div>

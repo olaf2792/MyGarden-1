@@ -1,12 +1,10 @@
-<ion-nav-bar class="bar-positive">
-</ion-nav-bar>
 <ion-view title="Pflanzen Details" id="pflanzendetail" class="olaf_miko@hotmail.de">
   <ion-nav-buttons side="left">
     <button class="button button-clear"  ng-controller="pflanzenCtrl" ng-click="myGoBack()" >
       <i class="icon ion-ios-arrow-back"></i>
       Zurück</button>
   </ion-nav-buttons>
-  <ion-content padding="true" class="has-header">
+  <ion-content padding="true" class="has-header" overflow-scroll="false">
     <div class="list card" id="pflanzendetail-card22">
       <ion-item class="item-avatar  olaf_miko@hotmail.de" id="page2-list-item16">
         <h2>{{pflanze.name}}</h2>
@@ -23,8 +21,8 @@
           <p style="color:#000000;font-size:17px;">{{pflanze.beschreibung}}</p>
         </div>
       </div>
-      <ion-item class="item-icon-left balanced  olaf_miko@hotmail.de" id="page2-list-item17">
-        <i class="icon ion-wrench" ng-click=""></i>Einstellungen zuweisen</ion-item>
+      <ion-item class="item-icon-left balanced  olaf_miko@hotmail.de" id="page2-list-item17"  ng-click="select_plant()">
+        <i class="icon ion-wrench"></i>Einstellungen zuweisen</ion-item>
     </div>
   </ion-content>
 </ion-view>

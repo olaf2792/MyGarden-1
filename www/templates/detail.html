@@ -1,14 +1,28 @@
-<ion-nav-bar class="bar-positive">
-</ion-nav-bar>
-<ion-view title="Sensor" id="detail" style="background-color:#238A55;">
-  <ion-nav-buttons side="left">
+<ion-view title="Pflanzendetail" id="page9" style="background-color:#9d8939;">
+  <ion-nav-buttons side="left" class="has-header">
     <button class="button button-clear" ng-click="myGoBack()" >
-      <i class="icon ion-ios-arrow-back"></i>
-      Zurück</button>
+      <i class="icon ion-ios-arrow-back"></i> </button>
   </ion-nav-buttons>
-  <ion-content padding="true" class="has-header">
-    <ion-content ng-controller="sensorCtrl" ng-init="load_data()">
-      <canvas id="doughnut" class="chart chart-doughnut" chart-data="data" chart-labels="labels"></canvas>
+  <ion-nav-buttons side="right" class="has-header">
+    <button class="button button-icon icon ion-android-create"></button>
+  </ion-nav-buttons>
+  <ion-content padding="true" class="has-header" overflow-scroll="false" >
+    <ion-content ng-controller="sensorCtrl" ng-init="load_data">
+      <h1 id="pflanzendetail-heading1" editable-text="user.name" style="color:#FCFCFC;font-weight:400;text-align:center;"> {{ user.name || "empty" }}
+      </h1>
+      <ion-list id="pflanzendetail-list4">
+        <ion-item class="item-divider" id="pflanzendetail-list-item-divider2"> Akt. Werte</ion-item>
+        <ion-item id="pflanzendetail-list-item15">Temperatur: {{data.temp}} °C</ion-item>
+        <ion-item id="pflanzendetail-list-item18">Boden Feuchtigkeit: {{data.boden}} %</ion-item>
+        <ion-item id="pflanzendetail-list-item19">Luft Feuchtigkeit: {{data.luft}} %</ion-item>
+      </ion-list>
+      <div class="spacer" style="width: 300px; height: 46px;"></div>
+      <ion-list id="pflanzendetail-list5">
+        <ion-item class="item-divider" id="pflanzendetail-list-item-divider3"> Soll Werte für {{pflanze.name}} </ion-item>
+        <ion-item id="pflanzendetail-list-item20">Temperatur: {{pflanze.mintemp}} - {{pflanze.maxtemp}}°C</ion-item>
+        <ion-item id="pflanzendetail-list-item21">Boden Feuchtigkeit: {{pflanze.boden}} %</ion-item>
+        <ion-item id="pflanzendetail-list-item22">Luft Feuchtigkeit: Nan %</ion-item>
+      </ion-list>
+      <div id="pflanzendetail-container3" class="creator-container"></div>
     </ion-content>
-
 </ion-view>
